@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iran-academic-search-mcp"
+version = "0.1.0"
+description = "MCP server for searching public scholarly records on Iranian academic portals."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Iran Academic Search MCP contributors" }]
+keywords = ["mcp", "iran", "research", "scholarly-search", "camoufox"]
+dependencies = ["mcp[cli]>=1.12,<2", "camoufox>=0.5.9,<0.6"]
+
+[project.scripts]
+iran-academic-search = "iran_academic_search.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/iran_academic_search"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
